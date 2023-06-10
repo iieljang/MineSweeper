@@ -22,7 +22,7 @@ public abstract class GameServerThreads extends Thread{
         }
     }
 
-    protected synchronized void HandleMessages() throws IOException {
+    protected synchronized void HandleMessages(String opponent) throws IOException {
         ObjectReaderRunner tr = new ObjectReaderRunner();
         new Thread(tr).start();
         while (true) {
@@ -30,7 +30,7 @@ public abstract class GameServerThreads extends Thread{
             Message msg = tr.ins.poll();
             if (msg != null) {
                 if (msg.type == 'S') {
-                    console.Print(msg.msg);
+                    console.Print(opponent + ": " + msg.msg, Color.ORANGE);
                 } else {
                     if (msg.msg.equals("W")) {
                         game.minePanel.mineboard.GameOver();

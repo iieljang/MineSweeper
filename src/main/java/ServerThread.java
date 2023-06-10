@@ -32,7 +32,7 @@ public class ServerThread extends GameServerThreads {
             game.SetMPGame();
             //
 
-            HandleMessages();
+            HandleMessages("Client");
         } catch (IOException e) {
             console.Print(e.getMessage(), Color.RED);
             console.Print("Something went wrong with server.\nTerminating...", Color.RED);

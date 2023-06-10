@@ -39,7 +39,7 @@ public class TCPClientThread extends GameServerThreads {
             console.Print("Done.", Color.ORANGE);
             game.SetMPGame();
             //
-            HandleMessages();
+            HandleMessages("Server");
 
         } catch (IOException e) {
             console.Print(e.getMessage(), Color.RED);
