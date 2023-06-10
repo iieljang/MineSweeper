@@ -126,6 +126,7 @@ class MineBoard extends JPanel {
                     return;
             }
         }
+        GameWin();
     }
     public void GameWin() {
         gameState = "W";
