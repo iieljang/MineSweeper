@@ -56,6 +56,8 @@ class MineBoard extends JPanel {
     GameWindow game;
     GameConsole console;
     public void RightClick(int x, int y){
+        if(board[x][y].cracked)
+            return;
         //flag if not flagged, unflag if flagged.
         if (!board[x][y].flagged){
             board[x][y].setBackground(Color.red);
