@@ -22,17 +22,17 @@ public class TCPClientThread extends GameServerThreads {
             in = soc.getInputStream();
             out = soc.getOutputStream();
 
-            dis = new DataInputStream(in);
-            dos = new DataOutputStream(out);
             ois = new ObjectInputStream(in);
             oos = new ObjectOutputStream(out);
 
             //map
+            //receive game information from Server
             console.Print("waiting for board information...", Color.YELLOW);
             GameInfo info = null;
             try {
                 info = (GameInfo) ois.readObject();
             } catch (Exception e) {
+                console.Print("Failed to read game information. Please start new game.", Color.RED);
                 e.printStackTrace();
             }
             game.NewClientBoard(info);

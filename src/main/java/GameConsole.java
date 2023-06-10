@@ -3,6 +3,8 @@ import javax.swing.text.*;
 import java.awt.*;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
+//console to dispaly information and have a chat.
+//console controls server.
 public class GameConsole extends JPanel {
     GameWindow game;
     private JTextField inputField;
@@ -11,6 +13,8 @@ public class GameConsole extends JPanel {
 
     Thread serverThread;
     Thread clientThread;
+
+    //outgoing message enqueued to here.
     ConcurrentLinkedQueue<String> msgQueue;
 
     public void StartServer() {
@@ -54,29 +58,29 @@ public class GameConsole extends JPanel {
     public GameConsole(GameWindow game) {
         this.game = game;
 
-        // Set up the JFrame
         setLayout(new BorderLayout());
 
-        // Create the output area
         createOutputPane();
 
         JScrollPane scrollPane = new JScrollPane(outputPane);
         add(scrollPane, BorderLayout.CENTER);
 
-        // Create the input field
         createInputField();
 
         msgQueue = new ConcurrentLinkedQueue<>();
 
-        // Set the JFrame size and make it visible
         setSize(400, 300);
         setVisible(true);
     }
 
+    //handles input
+    //add outgoing message to msg Queue.
     private void handleInput(String input) {
         msgQueue.add(input);
     }
 
+    //Print with colors!
+    //if no colors provided, print with white color.
     public void Print(String message) {
         Style style = outputDocument.addStyle("coloredText", null);
         StyleConstants.setForeground(style, Color.WHITE);

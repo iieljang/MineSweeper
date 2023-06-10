@@ -5,6 +5,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
+//Menu Panel
 public class MenuPanel extends JPanel {
 
     JButton spButton;
@@ -26,6 +27,7 @@ public class MenuPanel extends JPanel {
         }
         mainImage = new JLabel(new ImageIcon(img.getScaledInstance(900, 667, Image.SCALE_SMOOTH)));
 
+        //Menu Buttons Panel
         JPanel northPanel = new JPanel();
         spButton.addActionListener(ee -> game.NewSoloGame());
         hostButton.addActionListener(e -> game.NewServerGame());
@@ -35,6 +37,7 @@ public class MenuPanel extends JPanel {
         northPanel.add(joinButton);
         add(northPanel, BorderLayout.NORTH);
 
+        //Image Panel
         JPanel southPanel = new JPanel();
         southPanel.setLayout(new BorderLayout());
         southPanel.add(mainImage, BorderLayout.CENTER);

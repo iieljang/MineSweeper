@@ -128,6 +128,7 @@ class MineBoard extends JPanel {
         }
         GameWin();
     }
+    //Trigger Win function
     public void GameWin() {
         gameState = "W";
         console.Print("YOU WIN!", Color.green);
@@ -136,6 +137,7 @@ class MineBoard extends JPanel {
             System.exit(0);
         game.NewMenu();
     }
+    //Trigger game over function
     public void GameOver() {
         //attempt to crack mine cell -> game over.
         //reveal all mines

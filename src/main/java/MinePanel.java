@@ -48,6 +48,7 @@ class MinePanel extends JPanel {
         }
         return 0.1f;
     }
+    //create new game with gameinfo -- this is for client game creation.
     MinePanel(int cellSize, GameWindow game, GameInfo info) {
         setLayout(null);
         this.game = game;
@@ -60,6 +61,7 @@ class MinePanel extends JPanel {
         add(mineboard);
         addPositionCorrector(cellSize, boardSizeCount);
     }
+    //create new game.
     MinePanel(int cellSize, GameWindow game, long seed) {
         setLayout(null);
         info = new GameInfo(GetBoardSize(), GetDifficulty(), seed);
@@ -72,8 +74,9 @@ class MinePanel extends JPanel {
         add(mineboard);
         addPositionCorrector(cellSize, boardSizeCount);
     }
+
+    //manually update mineboard position whenever resized
     void addPositionCorrector(int cellSize, int boardSizeCount) {
-        //manually update mineboard position whenever resized
         addComponentListener(new ComponentAdapter() {
             @Override
             public void componentResized(ComponentEvent e) {

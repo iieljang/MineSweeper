@@ -1,5 +1,6 @@
 import java.io.Serializable;
 
+//game board information to share between server and client
 public class GameInfo implements Serializable {
     int size;
     float diff;

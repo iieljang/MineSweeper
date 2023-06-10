@@ -20,13 +20,12 @@ public class ServerThread extends GameServerThreads {
             in = soc.getInputStream();
             out = soc.getOutputStream();
 
-            dis = new DataInputStream(in);
-            dos = new DataOutputStream(out);
             oos = new ObjectOutputStream(out);
             ois = new ObjectInputStream(in);
 
             //map
             console.Print("Host creating new game...", Color.YELLOW);
+            //send game information to client
             oos.writeObject(game.GetGameInfo());
             console.Print("Done.", Color.ORANGE);
             game.SetMPGame();
