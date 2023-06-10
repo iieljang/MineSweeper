@@ -4,7 +4,7 @@ import java.awt.event.ComponentEvent;
 
 //Wrapper class for MineBoard placement.
 class MinePanel extends JPanel {
-    public static GameInfo info;
+    public GameInfo info;
     MineBoard mineboard;
     GameWindow game;
 

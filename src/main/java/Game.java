@@ -64,7 +64,7 @@ class GameWindow extends JFrame {
 
     //return gameboard info
     public GameInfo GetGameInfo() {
-        return MinePanel.info;
+        return minePanel.info;
     }
     public String GetGameState() {return minePanel.mineboard.gameState;}
 }
