@@ -91,6 +91,7 @@ class MineBoard extends JPanel {
                 }
             }
         }
+        CheckWin();
     }
 
     //Place Mines on the board.
