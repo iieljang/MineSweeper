@@ -91,7 +91,6 @@ class MineBoard extends JPanel {
                 }
             }
         }
-        CheckWin();
     }
 
     //Place Mines on the board.
@@ -121,13 +120,12 @@ class MineBoard extends JPanel {
         //check if every non-mine cell is exposed
         for (int i = 0; i < cellCountX; i++) {
             for (int j = 0; j < cellCountY; j++) {
-                if (board[i][j].value == -1) {
-                    if (!board[i][j].cracked)
-                        return;
-                }
+                if (board[i][j].value == -1)
+                    continue;
+                if(!board[i][j].cracked)
+                    return;
             }
         }
-        GameWin();
     }
     public void GameWin() {
         gameState = "W";
